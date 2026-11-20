@@ -1,291 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    transform: translateY(-2px);
+    <title>JobTrack - Job Application System</title>
+
+    <style>
+        :root {
+            --navy: #102a43;
+            --deep: #164e63;
+            --teal: #2a9d8f;
+            --cream: #f7f3e9;
+            --bg: #f4f7f6;
+            --text: #243b53;
+            --muted: #829ab1;
+            --line: #d9e2ec;
         }
 
-        .btn-explore {
-            margin-left: 12px;
-            color: #176b5d;
-            border: 1px solid #bcd5d1;
-            padding: 12px 24px;
-            border-radius: 9px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
+        * {
+            box-sizing: border-box;
         }
 
-        .btn-explore:hover {
-            background: #e9f4f2;
-            color: #176b5d;
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
         }
 
-        /* MOCK DASHBOARD */
+        /* =========================
+           NAVBAR
+        ========================= */
 
-        .preview-area {
-            width: 45%;
-            margin-left: auto;
-            position: relative;
-            z-index: 2;
+        .navbar {
+            height: 76px;
+            background: var(--navy);
         }
 
-        .preview-card {
-            background: white;
-            border: 1px solid #dce7e5;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(16, 47, 53, 0.12);
-            transform: rotate(2deg);
-        }
-
-        .preview-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .preview-title {
-            font-weight: 700;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background: #2fc4ab;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
-        }
-
-        .mini-stat {
-            background: #f3f7f6;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 12px;
-        }
-
-        .mini-stat small {
-            color: #81908e;
-        }
-
-        .mini-stat h4 {
-            margin: 5px 0 0;
-            font-weight: 700;
-        }
-
-        .progress {
-            height: 8px;
-            background: #e6eeec;
-        }
-
-        .progress-bar {
-            background: #2fc4ab;
-        }
-
-        .application-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #edf2f1;
-        }
-
-        .application-row:last-child {
-            border-bottom: none;
-        }
-
-        .company-name {
-            font-weight: 700;
-            font-size: 13px;
-        }
-
-        .job-name {
-            font-size: 11px;
-            color: #879391;
-        }
-
-        .status {
-            font-size: 10px;
-            padding: 5px 9px;
-            border-radius: 20px;
-            background: #e7f5f1;
-            color: #176b5d;
-            font-weight: 700;
-        }
-
-        /* FEATURES */
-
-        .features {
-            padding: 80px 7%;
-            background: #102f35;
-            color: white;
-        }
-
-        .section-title {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 45px;
-        }
-
-        .section-title h2 {
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .section-title p {
-            color: #a9bebc;
-        }
-
-        .feature-card {
+        .nav-container {
+            max-width: 1200px;
             height: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 15px;
-            padding: 25px;
+            margin: auto;
+            padding: 0 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(47,196,171,0.15);
-            color: #2fc4ab;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .logo-box {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 9px;
+
+            background: var(--teal);
+            color: white;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 21px;
+
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: #d9e2ec;
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            padding: 10px 14px;
+            border-radius: 7px;
+
+            transition: 0.2s;
+        }
+
+        .nav-link:hover {
+            color: white;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .login-link {
+            background: var(--teal);
+            color: var(--navy);
+            margin-left: 5px;
+        }
+
+        .login-link:hover {
+            background: #3ab3a3;
+            color: var(--navy);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 1200px;
+            min-height: 590px;
+
+            margin: auto;
+            padding: 70px 24px;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+
+            gap: 75px;
+
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: var(--teal);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1.8px;
+
             margin-bottom: 18px;
         }
 
-        .feature-card h5 {
+        .hero h1 {
+            color: var(--navy);
+
+            font-size: 52px;
+            line-height: 1.05;
+
+            letter-spacing: -1.5px;
+
+            margin: 0;
+
+            max-width: 600px;
+        }
+
+        .hero h1 span {
+            color: var(--teal);
+        }
+
+        .description {
+            max-width: 550px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+            line-height: 1.8;
+
+            margin: 22px 0 30px;
+        }
+
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .primary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            background: var(--navy);
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 21px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .primary-btn:hover {
+            background: var(--deep);
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            color: var(--navy);
+
+            text-decoration: none;
+
+            padding: 13px 17px;
+
+            font-size: 13px;
             font-weight: 700;
         }
 
-        .feature-card p {
-            color: #a9bebc;
-            font-size: 14px;
-            line-height: 1.7;
+        .secondary-btn:hover {
+            color: var(--teal);
         }
 
-        /* FOOTER */
+
+        /* =========================
+           WORKFLOW PANEL
+        ========================= */
+
+        .workflow {
+            background: var(--navy);
+
+            border-radius: 18px;
+
+            padding: 36px;
+
+            color: white;
+
+            box-shadow:
+                0 20px 50px rgba(16, 42, 67, 0.12);
+        }
+
+        .workflow-title {
+            color: var(--teal);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1.7px;
+
+            margin-bottom: 30px;
+        }
+
+        .workflow-item {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 17px;
+        }
+
+        .number {
+            width: 43px;
+            height: 43px;
+
+            flex-shrink: 0;
+
+            border: 1px solid rgba(255,255,255,0.22);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--teal);
+
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .workflow h3 {
+            margin: 2px 0 6px;
+
+            font-size: 16px;
+
+            color: white;
+        }
+
+        .workflow p {
+            margin: 0;
+
+            color: #9fb3c8;
+
+            font-size: 12px;
+            line-height: 1.7;
+
+            max-width: 275px;
+        }
+
+        .workflow-line {
+            width: 1px;
+            height: 25px;
+
+            background: rgba(255,255,255,0.15);
+
+            margin: 5px 0 5px 21px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            background: var(--navy);
+
+            padding: 55px 24px;
+        }
+
+        .feature-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .feature-heading {
+            margin-bottom: 28px;
+        }
+
+        .feature-heading h2 {
+            color: white;
+
+            font-size: 27px;
+
+            margin: 0 0 8px;
+        }
+
+        .feature-heading p {
+            color: #9fb3c8;
+
+            font-size: 13px;
+
+            margin: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .feature {
+            background: rgba(255,255,255,0.04);
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 12px;
+
+            padding: 23px;
+        }
+
+        .feature-icon {
+            width: 38px;
+            height: 38px;
+
+            background: rgba(42,157,143,0.12);
+
+            color: var(--teal);
+
+            border-radius: 9px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: white;
+
+            font-size: 15px;
+
+            margin: 0 0 8px;
+        }
+
+        .feature p {
+            color: #9fb3c8;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            background: #0b252a;
-            color: #7f9795;
-            padding: 20px 7%;
+            background: #0b2033;
+
+            color: #829ab1;
+
             text-align: center;
-            font-size: 12px;
+
+            padding: 20px;
+
+            font-size: 11px;
         }
 
-        /* RESPONSIVE */
 
-        @media (max-width: 900px) {
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
 
             .hero {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+                padding-top: 55px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .nav-link:not(.login-link) {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 0 18px;
+            }
+
+            .hero {
+                padding: 45px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .buttons {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .hero h1 {
-                font-size: 44px;
+            .workflow {
+                padding: 27px;
             }
 
-            .preview-area {
-                width: 100%;
-                margin-top: 50px;
+            .features {
+                padding: 45px 20px;
             }
-
         }
-
-        @media (max-width: 600px) {
-
-            .navbar {
-                padding: 15px 5%;
-            }
-
-            .hero {
-                padding: 55px 6%;
-            }
-
-            .hero h1 {
-                font-size: 37px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .btn-explore {
-                margin-left: 0;
-                margin-top: 12px;
-            }
-
-            .preview-card {
-                transform: none;
-            }
-
-        }
-
     </style>
-
 </head>
 
 
 <body>
 
 
-<!-- ========================= -->
-<!-- NAVIGATION -->
-<!-- ========================= -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar">
 
-    <div class="container-fluid">
+    <div class="nav-container">
 
-        <a class="navbar-brand" href="index.html">
+        <a href="index.html" class="logo">
 
-            <span class="brand-icon">
-                <i class="bi bi-briefcase-fill"></i>
-            </span>
+            <div class="logo-box">
+                J
+            </div>
 
             JobTrack
 
         </a>
 
 
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarMenu">
+        <div class="nav-links">
 
-            <span class="navbar-toggler-icon"></span>
+            <a href="#features" class="nav-link">
+                Features
+            </a>
 
-        </button>
-
-
-        <div class="collapse navbar-collapse" id="navbarMenu">
-
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#features">
-                        Features
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">
-                        Sign In
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link nav-login" href="login.html">
-                        Open JobTrack
-                    </a>
-                </li>
-
-            </ul>
+            <a href="login.html" class="nav-link login-link">
+                Sign In
+            </a>
 
         </div>
 
@@ -295,42 +520,42 @@
 
 
 
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
+
     <div class="hero-content">
 
-        <span class="small-label">
-            <i class="bi bi-stars"></i>
-            SMART JOB APPLICATION TRACKER
-        </span>
+        <div class="eyebrow">
+            JOB APPLICATION MANAGEMENT SYSTEM
+        </div>
 
 
         <h1>
-            Your job search,
-            <span>under control.</span>
+            Make your job search
+            <span>more organised.</span>
         </h1>
 
 
-        <p>
-            JobTrack helps you organise your job applications,
-            monitor application status, track interviews and
-            manage your career opportunities from one simple dashboard.
+        <p class="description">
+            JobTrack gives you a simple way to record job
+            applications, monitor progress and manage your
+            career opportunities from one place.
         </p>
 
 
-        <div>
+        <div class="buttons">
 
-            <a href="login.html" class="btn-start">
+            <a href="login.html" class="primary-btn">
                 Get Started
-                <i class="bi bi-arrow-right"></i>
+                →
             </a>
 
-            <a href="#features" class="btn-explore">
-                Explore Features
+            <a href="#features" class="secondary-btn">
+                Learn More
             </a>
 
         </div>
@@ -339,148 +564,81 @@
 
 
 
-    <!-- DASHBOARD PREVIEW -->
+    <!-- WORKFLOW -->
 
-    <div class="preview-area">
+    <div class="workflow">
 
-        <div class="preview-card">
+        <div class="workflow-title">
+            HOW JOBTRACK WORKS
+        </div>
 
-            <div class="preview-top">
 
-                <div>
+        <div class="workflow-item">
 
-                    <div style="font-size: 11px; color: #879391;">
-                        JOBTRACK OVERVIEW
-                    </div>
+            <div class="number">
+                01
+            </div>
 
-                    <div class="preview-title">
-                        Career Dashboard
-                    </div>
+            <div>
 
-                </div>
+                <h3>
+                    Apply
+                </h3>
 
-                <div style="font-size: 11px; color: #176b5d;">
-                    <span class="status-dot"></span>
-                    Active
-                </div>
+                <p>
+                    Record your job applications
+                    and keep important details organised.
+                </p>
 
             </div>
 
+        </div>
 
-            <div class="row">
 
-                <div class="col-6">
+        <div class="workflow-line"></div>
 
-                    <div class="mini-stat">
 
-                        <small>Total Applications</small>
+        <div class="workflow-item">
 
-                        <h4>10</h4>
+            <div class="number">
+                02
+            </div>
 
-                    </div>
+            <div>
 
-                </div>
+                <h3>
+                    Track
+                </h3>
 
-                <div class="col-6">
-
-                    <div class="mini-stat">
-
-                        <small>Interviews</small>
-
-                        <h4>2</h4>
-
-                    </div>
-
-                </div>
+                <p>
+                    Monitor application status and
+                    keep track of interview progress.
+                </p>
 
             </div>
 
+        </div>
 
-            <div class="mini-stat">
 
-                <div class="d-flex justify-content-between">
+        <div class="workflow-line"></div>
 
-                    <small>Application Progress</small>
 
-                    <small>70%</small>
+        <div class="workflow-item">
 
-                </div>
-
-                <div class="progress mt-2">
-
-                    <div
-                        class="progress-bar"
-                        style="width: 70%;">
-                    </div>
-
-                </div>
-
+            <div class="number">
+                03
             </div>
 
+            <div>
 
-            <div style="margin-top: 20px;">
+                <h3>
+                    Manage
+                </h3>
 
-                <div class="application-row">
-
-                    <div>
-
-                        <div class="company-name">
-                            TechNova Solutions
-                        </div>
-
-                        <div class="job-name">
-                            Frontend Developer
-                        </div>
-
-                    </div>
-
-                    <span class="status">
-                        Interview
-                    </span>
-
-                </div>
-
-
-                <div class="application-row">
-
-                    <div>
-
-                        <div class="company-name">
-                            Digital Core
-                        </div>
-
-                        <div class="job-name">
-                            UI/UX Designer
-                        </div>
-
-                    </div>
-
-                    <span class="status">
-                        Review
-                    </span>
-
-                </div>
-
-
-                <div class="application-row">
-
-                    <div>
-
-                        <div class="company-name">
-                            Alpha Systems
-                        </div>
-
-                        <div class="job-name">
-                            IT Support Executive
-                        </div>
-
-                    </div>
-
-                    <span class="status">
-                        Submitted
-                    </span>
-
-                </div>
+                <p>
+                    Keep your career opportunities
+                    organised from one dashboard.
+                </p>
 
             </div>
 
@@ -492,93 +650,87 @@
 
 
 
-<!-- ========================= -->
-<!-- FEATURES -->
-<!-- ========================= -->
+<!-- =========================
+     FEATURES
+========================= -->
 
 <section class="features" id="features">
 
-    <div class="section-title">
+    <div class="feature-container">
 
-        <h2>
-            Everything you need for your job search
-        </h2>
+        <div class="feature-heading">
 
-        <p>
-            A simple workspace to help you stay organised
-            throughout the application process.
-        </p>
+            <h2>
+                Everything you need in one place.
+            </h2>
 
-    </div>
+            <p>
+                Simple tools to help you stay organised throughout your job search.
+            </p>
 
-
-    <div class="row g-4">
+        </div>
 
 
-        <div class="col-md-4">
+        <div class="feature-grid">
 
-            <div class="feature-card">
+
+            <div class="feature">
 
                 <div class="feature-icon">
-                    <i class="bi bi-kanban"></i>
+                    ✓
                 </div>
 
-                <h5>
+                <h3>
                     Application Tracking
-                </h5>
+                </h3>
 
                 <p>
-                    Keep all your job applications in one place
-                    and monitor their current status.
+                    Record your applications and
+                    monitor their current progress
+                    in one place.
                 </p>
 
             </div>
 
-        </div>
 
 
-
-        <div class="col-md-4">
-
-            <div class="feature-card">
+            <div class="feature">
 
                 <div class="feature-icon">
-                    <i class="bi bi-bar-chart-line"></i>
+                    ◷
                 </div>
 
-                <h5>
-                    Career Insights
-                </h5>
+                <h3>
+                    Status Monitoring
+                </h3>
 
                 <p>
-                    View application statistics and understand
-                    your job search progress through visual data.
+                    Quickly identify applications that
+                    are submitted, under review,
+                    interviewed or selected.
                 </p>
 
             </div>
 
-        </div>
 
 
-
-        <div class="col-md-4">
-
-            <div class="feature-card">
+            <div class="feature">
 
                 <div class="feature-icon">
-                    <i class="bi bi-building"></i>
+                    +
                 </div>
 
-                <h5>
+                <h3>
                     Company Management
-                </h5>
+                </h3>
 
                 <p>
-                    Organise company information and keep track
-                    of opportunities from different organisations.
+                    Keep company information organised
+                    while managing your job opportunities.
                 </p>
 
             </div>
+
 
         </div>
 
@@ -588,22 +740,16 @@
 
 
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    JobTrack © 2026 · IMS566 Job Application Management System
+    JobTrack · Job Application Management System · IMS566
 
 </footer>
 
 
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-
 </body>
-
 </html>

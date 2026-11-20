@@ -1,5 +1,5 @@
-# JobTrack - Job Application Management System
-
+# JobTrack - Job Application Management System 
+𑣲⋆
 ## About the Project
 
 JobTrack is a web-based job application management system developed for the IMS566 Individual Project.
@@ -97,5 +97,6 @@ Project: Individual Project
 System: JobTrack - Job Application Management System
 
 Group:SI2624C
-NUR INSYIRAH BINTI MOHD ASRI (2026118833)
+
+𑣲⋆ NUR INSYIRAH BINTI MOHD ASRI (2026118833)𑣲⋆
 

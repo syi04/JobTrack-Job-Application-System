@@ -16,7 +16,6 @@ The system is designed to help users keep track of their job applications, appli
 - Application status charts
 - Responsive interface
 - Browser data storage
-- 
 ## System Pages
 
  1. Landing Page

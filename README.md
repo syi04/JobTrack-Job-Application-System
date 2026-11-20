@@ -90,9 +90,13 @@ Live Website:
 https://syi04.github.io/JobTrack-Job-Application-System/
 
 Project Information
+
 Course: IMS566
+
 Project: Individual Project
+
 System: JobTrack - Job Application Management System
+
 Group:SI2624C
 NUR INSYIRAH BINTI MOHD ASRI (2026118833)
 
